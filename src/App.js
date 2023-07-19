@@ -11,6 +11,17 @@ import {
 } from "react-bootstrap";
 import "./App.css";
 
+const countries = [
+  "Select Country",
+  "USA",
+  "Canada",
+  "UK",
+  "Australia",
+  "Germany",
+  "France",
+  // Add more countries as needed
+];
+
 const App = () => {
   const [employees, setEmployees] = useState([]);
   const [formData, setFormData] = useState({
@@ -135,7 +146,7 @@ const App = () => {
         </Row>
         <Row>
           <Col>
-            <Table striped bordered hover responsive className="custom-table">
+            <Table striped bordered hover responsive>
               <thead>
                 <tr>
                   <th>Name</th>
@@ -217,13 +228,17 @@ const App = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Country</Form.Label>
-              <Form.Control
-                type="text"
+              <Form.Select
                 name="country"
-                placeholder="Enter Country"
                 value={formData.country}
                 onChange={handleInputChange}
-              />
+              >
+                {countries.map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </Form.Select>
             </Form.Group>
             <Button type="submit" variant="primary" className="me-2">
               {isUpdating ? "Update" : "Add Employee"}
