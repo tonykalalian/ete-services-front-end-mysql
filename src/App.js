@@ -13,13 +13,12 @@ import "./App.css";
 
 const countries = [
   "Select Country",
-  "USA",
-  "Canada",
+  "Lebanon",
+  "Dubai",
   "UK",
-  "Australia",
-  "Germany",
-  "France",
-  // Add more countries as needed
+  "Canada",
+  "India",
+  "Other",
 ];
 
 const App = () => {
